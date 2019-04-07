@@ -1078,12 +1078,23 @@
 
             textSourceX += this.textImgPos.x;
             textSourceY += this.textImgPos.y;
+            
+            this.canvasCtx.save();
+            this.canvasCtx.fillStyle = "#5a5a5a";
+            this.canvasCtx.font = "10px MyWebFont";
+                
+            this.canvasCtx.fillText("GAME OVER", this.canvasDimensions.WIDTH - 100, 60);
 
+            this.canvasCtx.restore();
+
+            //Ankesh4
+
+            /*
             // Game over text from sprite.
             this.canvasCtx.drawImage(Runner.imageSprite,
                 textSourceX, textSourceY, textSourceWidth, textSourceHeight,
                 textTargetX, textTargetY, textTargetWidth, textTargetHeight);
-
+            */
             // Restart button.
             this.canvasCtx.drawImage(Runner.imageSprite,
                 this.restartImgPos.x, this.restartImgPos.y,
@@ -1259,6 +1270,7 @@
         this.gap = 0;
         this.speedOffset = 0;
         this.messageDisplay = false;
+        this.messageType = getRandomNum(0, 100);
 
         // For animated obstacles.
         this.currentFrame = 0;
@@ -1357,33 +1369,6 @@
                     this.typeConfig.width * this.size, this.typeConfig.height);
             },
 
-            draw2: function () {
-                             
-                var sourceWidth = this.typeConfig.width / 2;
-                var sourceHeight = this.typeConfig.height;
-
-                if (IS_HIDPI) {
-                    sourceWidth = sourceWidth * 2;
-                    sourceHeight = sourceHeight * 2;
-                }
-    
-                // X position in sprite.
-                var sourceX = (sourceWidth * this.size) * (0.5 * (this.size - 1)) +
-                    this.spritePos.x;
-    
-                // Animation frames.
-                if (this.currentFrame > 0) {
-                    sourceX += sourceWidth * this.currentFrame;
-                }
-    
-                this.canvasCtx.drawImage(Runner.imageSprite,
-                    sourceX, this.spritePos.y,
-                    sourceWidth * this.size, sourceHeight,
-                    this.xPos, this.yPos,
-                    this.typeConfig.width * this.size, this.typeConfig.height);
-            
-            },
-
             /**
              * Obstacle frame update.
              * @param {number} deltaTime
@@ -1416,11 +1401,23 @@
                     }
 
                 }
+
                 if(this.messageDisplay) {
                     this.canvasCtx.save();
-                    this.canvasCtx.fillStyle = 'black';
-                    this.canvasCtx.font = "20px Arial";
-                    this.canvasCtx.fillText("Hello World", 80, 20);
+                    this.canvasCtx.fillStyle = "#5a5a5a";
+                    this.canvasCtx.font = "10px MyWebFont";
+                    switch(this.messageType % 4)  {
+                        case 0 : 
+                            this.canvasCtx.fillText("CSE FIRE", this.dimensions.WIDTH - 80, 40); //Test and set
+                            break;
+                        case 1 : 
+                            this.canvasCtx.fillText("DSA TRAGEDY",this.dimensions.WIDTH - 118, 40);
+                            break;
+                        case 2 : this.canvasCtx.fillText("INQUIZZITIVE REDINES",this.dimensions.WIDTH - 180, 40);
+                            break;
+                        case 3 : this.canvasCtx.fillText("LOUD AND CLEAR", this.dimensions.WIDTH - 140, 40);
+                            break;
+                    }
                     //Ankesh3
                     this.canvasCtx.restore();
                     this.draw();
@@ -1448,7 +1445,7 @@
              * @return {boolean} Whether the obstacle is in the game area.
              */
             isVisible: function () {
-                return this.xPos + this.width > 0;
+                return this.xPos + this.width > -100;
             },
 
             /**
