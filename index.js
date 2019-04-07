@@ -167,7 +167,7 @@
             PTERODACTYL: { x: 134, y: 2 },
             RESTART: { x: 2, y: 2 },
             TEXT_SPRITE: { x: 655, y: 2 },
-            TREX: { x: 848, y: 2 },
+            TREX: { x: 846, y: 2 },
             STAR: { x: 645, y: 2 }
         },
         HDPI: {
@@ -179,7 +179,7 @@
             PTERODACTYL: { x: 260, y: 2 },
             RESTART: { x: 2, y: 2 },
             TEXT_SPRITE: { x: 1294, y: 2 },
-            TREX: { x: 1678, y: 2 },
+            TREX: { x: 1676, y: 2 },
             STAR: { x: 1276, y: 2 }
         }
     };
