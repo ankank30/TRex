@@ -1406,16 +1406,18 @@
                     this.canvasCtx.save();
                     this.canvasCtx.fillStyle = "#5a5a5a";
                     this.canvasCtx.font = "10px MyWebFont";
-                    switch(this.messageType % 4)  {
+                    switch(this.messageType % 5)  {
                         case 0 : 
-                            this.canvasCtx.fillText("CSE FIRE", this.dimensions.WIDTH - 80, 40); //Test and set
+                            this.canvasCtx.fillText("CSE FIRE", this.dimensions.WIDTH - 78, 40); //Test and set
                             break;
                         case 1 : 
-                            this.canvasCtx.fillText("DSA TRAGEDY",this.dimensions.WIDTH - 118, 40);
+                            this.canvasCtx.fillText("BACKLOG PAPER(S)",this.dimensions.WIDTH - 160, 40);
                             break;
-                        case 2 : this.canvasCtx.fillText("INQUIZZITIVE REDINES",this.dimensions.WIDTH - 180, 40);
+                        case 2 : this.canvasCtx.fillText("MID SEM",this.dimensions.WIDTH - 75, 40);
                             break;
-                        case 3 : this.canvasCtx.fillText("LOUD AND CLEAR", this.dimensions.WIDTH - 140, 40);
+                        case 3 : this.canvasCtx.fillText("LATE ENTRY", this.dimensions.WIDTH - 110, 40);
+                            break;
+                        case 4 : this.canvasCtx.fillText("END SEM", this.dimensions.WIDTH - 80, 40);
                             break;
                     }
                     //Ankesh3
